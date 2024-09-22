@@ -1,7 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
-import router from './blog.route.js';
+import router from './routes/blog.route.js';
+import authRouter from './routes/auth.route.js';
+import { authMiddleware } from './middleware/auth.middleware.js';
 
 dotenv.config();
 
@@ -19,7 +21,9 @@ const connectDB = async () => {
 
 app.use(express.json());
 
-app.use('/blog', router);
+app.use('/auth', authRouter);
+
+app.use('/blog', authMiddleware, router);
 
 app.listen(process.env.PORT, async () => {
     await connectDB();
