@@ -32,3 +32,7 @@ app.listen(process.env.PORT, async () => {
 
 // To generate jwt secret key
 // node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+// MONGO_URI='mongodb://localhost:27017/Blog'
+// PORT=4001
+// JWT_SECRET='d9ae805ddb0de79f145b260df48afe96146beaeffafb801c6801001ff415d798'
